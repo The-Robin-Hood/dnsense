@@ -21,7 +21,7 @@ var commands = map[string]command{
 		prompt: "Define '%s' in one sentence like a dictionary. Max 200 characters. No markdown.",
 	},
 	"ask": {
-		prompt: "Answer this question factually and concisely in 2-3 sentences. No markdown. No preamble. Question: '%s'",
+		prompt: "Answer this question factually and concisely in 2-3 sentences. Be precise. No markdown. No preamble. Question: '%s'",
 	},
 }
 

@@ -15,6 +15,10 @@ var client = &http.Client{
 }
 
 func Ask(prompt string) (string, error) {
+	if cached, ok := getCached(prompt); ok {
+		return cached, nil
+	}
+
 	payload := map[string]any{
 		"model":  "llama3-chatqa:8b",
 		"prompt": prompt,
@@ -49,6 +53,7 @@ func Ask(prompt string) (string, error) {
 	if err := json.Unmarshal(respBody, &result); err != nil {
 		return "", fmt.Errorf("unmarshal: %w", err)
 	}
-
-	return strings.TrimSpace(result.Response), nil
+	answer := strings.TrimSpace(result.Response)
+	setCached(prompt, answer)
+	return answer, nil
 }
