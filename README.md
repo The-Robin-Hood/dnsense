@@ -36,7 +36,7 @@ define.<word>       dictionary style. no fluff.
 
 ---
 
-## how it works
+## How it works
 
 - you send a DNS TXT query with `dig`
 - server parses the domain name as `command.input`
@@ -49,7 +49,7 @@ define.<word>       dictionary style. no fluff.
 
 ---
 
-## requirements
+## Requirements
 
 - Go 1.22+
 - Ollama running locally — `ollama pull llama3-chatqa:8b` else use claude or openAI 
@@ -57,7 +57,7 @@ define.<word>       dictionary style. no fluff.
 
 ---
 
-## run it
+## Run it
 
 ```bash
 git clone https://github.com/The-Robin-Hood/dnsense
@@ -70,7 +70,7 @@ dig TXT ask.what-is-dark-matter @127.0.0.1 -p 8053
 
 ---
 
-## why DNS
+## Why DNS
 
 - works through firewalls that block everything else
 - no TLS handshake, no headers, no cookies, no noise
@@ -80,11 +80,11 @@ dig TXT ask.what-is-dark-matter @127.0.0.1 -p 8053
 
 ---
 
-## built from scratch
+## Built from scratch
 
 zero DNS libraries. raw bytes. RFC 1035 followed line by line.
 header parsing, name encoding, compression pointers, TXT record
-chunking — all hand-rolled in Go.
+chunking.
 
 > because using `miekg/dns` would have been too easy
 > and I really wanted to learn how this thing works.
